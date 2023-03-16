@@ -1,0 +1,146 @@
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* height 100vh yapmadan contenir ortalanmaz! */
+body {
+    background-image: linear-gradient(orange, purple), url(logo.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+/*Ana kapsayıcı*/
+.container {
+    max-width: 350px;
+    width: 100%;
+    background-color: purple;
+    border-radius: 10px;
+}
+
+.logo {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+
+
+}
+
+.logo img {
+    max-width: 90px;
+}
+
+.container .text-signin {
+    color: white;
+    font-size: 25px;
+    margin: 0 0 10px 20px;
+
+}
+/*Küçük Kapsayıcı.
+Flex kullanıp dikeyde ortaladım. width ve heighti %100 vererek 
+ustteki conteinera tam sığmasını sağladım*/
+.container-little {
+    background-color: orange;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container-little .text-welcome {
+    color: white;
+    font-size: 25px;
+    margin: 20px 0 0 20px;
+    align-self: flex-start;
+}
+
+.container-little .text-explain {
+    color: white;
+    font-size: 15px;
+    margin: 0 0 10px 25px;
+    align-self: flex-start;
+}
+/*İnput kapsayıcısı
+Relative değerini daha sonra kullanacağım underline 
+çizgisini kontrol ettmek için verdim.
+*/
+.input-area {
+    background-color: antiquewhite;
+    height: 40px;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    position: relative;
+
+}
+/*icon sınıfı*/ 
+.bi {
+    color: purple;
+    font-size: larger;
+}
+
+input {
+    background-color: antiquewhite;
+    margin-left: 10px;
+    outline: none;
+    border: none;
+}
+/*underline divine contenti boş olan bir before ögesi 
+vererek inputun altında bir çizgi oluşmasını sağladım. */
+.container .container-little form .input-area .underline::before {
+    content: "";
+    position: absolute;
+    height: 1px;
+    width: 70%;
+    margin-left: 30px;
+    background-color: gray;
+}
+/* input focus olamdığı sürece görünmeyecek bir :after ögesi ekledim.*/
+.container .container-little form .input-area .underline::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 70%;
+    margin-left: 30px;
+    background-color: purple;
+    transform: scaleX(0);
+    transition: all.3s ease;
+}
+/*input focus olunca :after ögesi x ekseninde görüneck  */
+.container .container-little form .input-area input:focus + .underline::after {
+    transform: scaleX(1);
+
+}
+/*input valid olunca :after ögesi x ekseninde görünecek ve rengi turuncu olacak  */
+.container .container-little form .input-area input:valid + .underline::after {
+    background-color: orange;
+    transform: scaleX(1);
+
+}
+
+input[type="submit"] {
+    background-color: purple;
+    padding: 10px;
+    margin: 10px 35% 40px;
+    border-radius: 5px;
+    color: antiquewhite;
+    font-weight: bold;
+}
+
+.text-little {
+    font-size: small;
+    margin: 10px;
+}
+
+a {
+    color: purple;
+}
